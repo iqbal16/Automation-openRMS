@@ -1,0 +1,23 @@
+{
+  "name": "webdriverio-tests",
+  "version": "0.0.0",
+  "private": true,
+  "license": "ISC",
+  "type": "module",
+  "devDependencies": {
+    "@wdio/allure-reporter": "^9.22.0",
+    "@wdio/cli": "^9.23.0",
+    "@wdio/cucumber-framework": "^9.23.0",
+    "@wdio/local-runner": "^9.23.0",
+    "@wdio/spec-reporter": "^9.20.0",
+    "allure-commandline": "^2.36.0",
+    "rimraf": "^6.1.2"
+  },
+ "scripts": {
+    "clean:allure": "rimraf allure-results allure-report",
+    "test:loginpage": "wdio run wdio.conf.js --spec features/Feature/loginpage.feature",
+    "allure:generate": "allure generate allure-results -o allure-report --clean",
+    "allure:open": "allure open allure-report",
+    "report:loginpage": "npm run clean:allure && npm run test:loginpage && npm run allure:generate && npm run allure:open"
+ }
+}
